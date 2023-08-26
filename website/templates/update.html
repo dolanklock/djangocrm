@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<html>
+    <head>
+       
+    </head>
+
+    <body>
+        <div class="card" style=" width: fit-content; position:relative; left:80px; top:50px">
+            <div class="card-header" style="font-size: large;">Customer Information</div>
+            <div class="card-body">
+                <b class="card-text">First Name</b>: {{item.first_name}}<br/>
+                <b class="card-text">Last Name</b>: {{item.last_name}}<br/>
+                <b class="card-text"> Email</b>: {{item.email}}<br/>
+                <b class="card-text"> Address</b>: {{item.address}}<br/>
+                <b class="card-text"> City</b>: {{item.city}}<br/>
+                <b class="card-text"> Province</b>: {{item.province}}<br/>
+                <b class="card-text"> Postal Code</b>: {{item.postal_code}}<br/>
+                <hr/>
+                <a href="{% url 'table' %}" class="btn btn-secondary">Back</a>
+                <a href="{% url 'updateinfo' item.id %}" class="btn btn-primary">Update Record</a>
+                <a href="{% url 'deletecustomer' item.id %}"class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </body>
+</html>
+
+{% endblock %}  

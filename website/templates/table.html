@@ -1,0 +1,39 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<table class="table table-bordered table-striped table-bordered table table-hover">
+    <thead class="table-dark">
+        <tr>    
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+            <th scope="col">City</th>
+            <th scope="col">Province</th>
+            <th scope="col">Postal Code</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        {% for item in all_data %}
+            <tr>
+                <td>{{item.first_name}}</td>
+                <td>{{item.last_name}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.address}}</td>
+                <td>{{item.city}}</td>
+                <td>{{item.province}}</td>
+                <td>{{item.postal_code}}</td>
+                <td><a href="{% url 'update' item.id %}"> Modify</a></td>
+            </tr>
+        {% endfor %}
+       
+    </tbody>
+</table>
+
+<div style="padding-left: 20px;">
+    <a href="{% url 'addcustomer' %}" class="btn btn-success">Add Customer </a> 
+</div>
+
+
+{% endblock %}
