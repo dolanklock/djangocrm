@@ -19,14 +19,12 @@ def home(request):
     else:
         return render(request, 'home.html', {})
 
-
 def table(request):
     if request.user.is_authenticated:
         all_data = models.ModelCRM.objects.all()
         return render(request, 'table.html', {'all_data': all_data})
     else:
         return redirect('home')
-
 
 def update(request, item_id):
     if request.user.is_authenticated:
@@ -74,7 +72,6 @@ def addcustomer(request):
             return redirect('table')
         else:
             return render(request, 'addcustomer.html', {})
-
     else:
         return redirect('home')
 

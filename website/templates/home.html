@@ -2,29 +2,71 @@
 
 {% block content %}
 
-<div class="col-md-6 offset-md-3">
-    {% if user.is_authenticated %}
-        <h1>Hello World!!</h1>
-    {% else %}
-        <br/>
-        <br/>
-        <br/>
-        <h1>Login</h1>
-        <form action="{% url 'home' %}" method="POST">
-            {% csrf_token %}
-            <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Username</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required name="username">
+<html>
+    <head>
+        <style>
+            .img-height{
+                height: 500px;
+                width: 500px;
+            }
+            .padding-cont{
+                padding: 30px;
+            }
+        </style>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        {% if user.is_authenticated %}
+            <div class="col-md-6 offset-md-3">
+                <div id="carouselExample" class="carousel slide img-height">
+                    <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://raw.githubusercontent.com/appbrewery/webdev/main/kitten.jpeg" class="d-block w-100 img-height" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://raw.githubusercontent.com/appbrewery/webdev/main/kitten.jpeg" class="d-block w-100 img-height" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://raw.githubusercontent.com/appbrewery/webdev/main/kitten.jpeg" class="d-block w-100 img-height" alt="...">
+                    </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             </div>
-            <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" required name="password">
+        {% else %}
+            <div class="col-md-6 offset-md-3">
+                <br/>
+                <br/>
+                <br/>
+                <h1>Login</h1>
+                <form action="{% url 'home' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required name="username">
+                    </div>
+                    <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" required name="password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-        </form>
-    {% endif %}
-     
-</div>
+        {% endif %}
+    </body>
+</html>
 
 {% endblock %}
 
